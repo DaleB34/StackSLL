@@ -10,6 +10,27 @@ public class DioList
         tail = null;
     }
 
+
+    public void addTailNode(int addData)
+    {
+        tail = new Node(addData, tail);
+    }
+
+    public void deleteTailNode()
+    {
+        if(tail!= null)
+        {
+            tail = tail.getLink();
+        }
+        else
+        {
+            System.out.println("Deleting from empty list");
+            System.exit(0);
+        }
+    }
+
+
+
     private class Node
     {
 
@@ -37,6 +58,7 @@ public class DioList
             return "data:" + data + " links to " + link;
         }
 
-    }
-}
+    }//end of Node
+
+}//end of DioList
 
