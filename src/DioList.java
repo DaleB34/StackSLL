@@ -29,6 +29,30 @@ public class DioList
         }
     }
 
+    public boolean hasNext()
+    {
+        Node position = head;
+        if(position.getLink() != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public int length()
+    {
+        int count = 0;
+        Node position = head;
+        while (position != null)
+        {
+            count++;
+            position = position.getLink();
+        }
+        return count;
+    }
+
+
+
 
 
     private class Node
