@@ -51,6 +51,16 @@ public class DioList
         return count;
     }
 
+    public void showList()
+    {
+        Node position = head;
+        while (position != null)
+        {
+            System.out.println(position.getData());
+            position = position.getLink();
+        }
+    }
+
 
 
 
