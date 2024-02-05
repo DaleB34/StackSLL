@@ -7,13 +7,19 @@ public class DioList
 
     public DioList()
     {
+        head = null;
         tail = null;
     }
 
 
     public void addTailNode(int addData)
     {
-        tail = new Node(addData, tail);
+        tail = new Node(addData, head);
+    }
+
+    public void addHeadNode(int addData)
+    {
+        head = new Node(addData, head);
     }
 
     public void deleteTailNode()
@@ -31,7 +37,7 @@ public class DioList
 
     public boolean hasNext()
     {
-        Node position = head;
+        Node position = tail;
         if(position.getLink() != null)
         {
             return true;
