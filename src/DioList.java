@@ -12,7 +12,6 @@ public class DioList
     public void addNode(int addData)
     {
         head = new Node(addData, head);
-        System.out.println(head.toString());
     }
 
     public boolean hasNext()
@@ -42,7 +41,7 @@ public class DioList
         Node position = head;
         while (position != null)
         {
-            System.out.println(position.getData());
+            System.out.print(position.getData() + " ");
             position = position.getLink();
         }
     }
