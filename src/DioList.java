@@ -2,21 +2,21 @@ import org.w3c.dom.Node;
 
 public class DioList
 {
-    private Node head;
+    private Node tail;
 
     public DioList()
     {
-        head = null;
+        tail = null;
     }
 
     public void addNode(int addData)
     {
-        head = new Node(addData, head);
+        tail = new Node(addData, tail);
     }
 
     public boolean hasNext()
     {
-        Node position = head;
+        Node position = tail;
         if(position.getLink() != null)
         {
             return true;
@@ -27,7 +27,7 @@ public class DioList
     public int length()
     {
         int count = 0;
-        Node position = head;
+        Node position = tail;
         while (position != null)
         {
             count++;
@@ -38,7 +38,7 @@ public class DioList
 
     public void showList()
     {
-        Node position = head;
+        Node position = tail;
         while (position != null)
         {
             System.out.print(position.getData() + " ");
