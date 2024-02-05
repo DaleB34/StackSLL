@@ -3,41 +3,21 @@ import org.w3c.dom.Node;
 public class DioList
 {
     private Node head;
-    private Node tail;
 
     public DioList()
     {
         head = null;
-        tail = null;
     }
 
-
-    public void addTailNode(int addData)
-    {
-        tail = new Node(addData, head);
-    }
-
-    public void addHeadNode(int addData)
+    public void addNode(int addData)
     {
         head = new Node(addData, head);
-    }
-
-    public void deleteTailNode()
-    {
-        if(tail!= null)
-        {
-            tail = tail.getLink();
-        }
-        else
-        {
-            System.out.println("Deleting from empty list");
-            System.exit(0);
-        }
+        System.out.println(head.toString());
     }
 
     public boolean hasNext()
     {
-        Node position = tail;
+        Node position = head;
         if(position.getLink() != null)
         {
             return true;
