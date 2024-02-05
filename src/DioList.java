@@ -2,7 +2,7 @@ import org.w3c.dom.Node;
 
 public class DioList
 {
-    private Node tail;
+    private Node tail; // because head is at the very bottom
 
     public DioList()
     {
@@ -70,6 +70,10 @@ public class DioList
         public Node getLink()
         {
             return link;
+        }
+        public void setLink(Node next)
+        {
+            this.link = next;
         }
 
         public String toString()
