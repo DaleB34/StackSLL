@@ -1,22 +1,36 @@
-import org.w3c.dom.Node;
-
 public class DioList
 {
-    private Node tail; // because head is at the very bottom
+    private Node head; // because head is at the very bottom
 
     public DioList()
     {
-        tail = null;
+        head = null;
     }
 
-    public void addNode(int addData)
+    public void addHeadNode(int addData)
     {
-        tail = new Node(addData, tail);
+        head = new Node(addData, head);
+    }
+
+    public Node findTailNode()
+    {
+        Node position = head;
+        while(position.getLink().getLink() != null)
+        {
+            position = position.getLink();
+        }
+        Node temp = position.getLink();
+        return temp;
+    }
+
+    public void addNode(Node node, int addData)
+    {
+
     }
 
     public boolean hasNext()
     {
-        Node position = tail;
+        Node position = head;
         if(position.getLink() != null)
         {
             return true;
@@ -27,7 +41,7 @@ public class DioList
     public int length()
     {
         int count = 0;
-        Node position = tail;
+        Node position = head;
         while (position != null)
         {
             count++;
@@ -38,12 +52,13 @@ public class DioList
 
     public void showList()
     {
-        Node position = tail;
+        Node position = head;
         while (position != null)
         {
             System.out.print(position.getData() + " ");
             position = position.getLink();
         }
+        System.out.println();
     }
 
 
