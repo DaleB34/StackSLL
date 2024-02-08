@@ -11,22 +11,12 @@ public class DioList
     {
         head = new Node(addData, head);
     }
-
-    public Node findTailNode()
+    public void addTailNode(int addData)
     {
-        Node position = head;
-        while(position.getLink().getLink() != null)
-        {
-            position = position.getLink();
-        }
-        Node temp = position.getLink();
-        return temp;
+        head.addTail(head,addData);
+        System.out.println(head.getLink());
     }
 
-    public void addNode(Node node, int addData)
-    {
-
-    }
 
     public boolean hasNext()
     {
@@ -94,6 +84,27 @@ public class DioList
         public String toString()
         {
             return "data:" + data + " links to " + link;
+        }
+
+        public  Node addTail(Node first, int addData)
+        {
+            Node temp = first;
+
+            if(first == null)
+            {
+                return new Node(addData, null);
+            }
+
+            //look for last element in list
+            while(first.getLink() != null)
+            {
+                first = first.getLink();
+            }
+
+            Node nextNode = first.getLink();
+            nextNode = new Node(addData, null);
+
+            return temp;
         }
 
     }//end of Node
