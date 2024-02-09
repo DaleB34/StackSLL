@@ -11,11 +11,6 @@ public class DioList
     {
         head = new Node(addData, head);
     }
-    public void addTailNode(int addData)
-    {
-        head.addTail(head,addData);
-        System.out.println(head.getLink());
-    }
 
 
     public boolean hasNext()
@@ -86,26 +81,6 @@ public class DioList
             return "data:" + data + " links to " + link;
         }
 
-        public  Node addTail(Node first, int addData)
-        {
-            Node temp = first;
-
-            if(first == null)
-            {
-                return new Node(addData, null);
-            }
-
-            //look for last element in list
-            while(first.getLink() != null)
-            {
-                first = first.getLink();
-            }
-
-            Node nextNode = first.getLink();
-            nextNode = new Node(addData, null);
-
-            return temp;
-        }
 
     }//end of Node
 
