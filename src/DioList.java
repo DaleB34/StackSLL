@@ -1,32 +1,39 @@
 public class DioList
 {
-    private Node head; // because head is at the very bottom
+    private Node head;
+    private Node tail;
 
     public DioList()
     {
         head = null;
+        tail = null;
     }
 
-    public void addHeadNode(int addData)
+    public void addTailNode(int addData)
     {
-        head = new Node(addData, head);
+        if(tail == null)
+        {
+            tail = new Node(addData, null); //in the case of an empty list
+            head = tail;
+        }
+        else {
+            tail = new Node(addData, tail);
+        }
     }
 
 
     public boolean hasNext()
     {
         Node position = head;
-        if(position.getLink() != null)
-        {
+        if (position.getLink() != null)
             return true;
-        }
         return false;
     }
 
     public int length()
     {
         int count = 0;
-        Node position = head;
+        Node position = tail;
         while (position != null)
         {
             count++;
@@ -37,10 +44,10 @@ public class DioList
 
     public void showList()
     {
-        Node position = head;
+        Node position = tail;
         while (position != null)
         {
-            System.out.print(position.getData() + " ");
+            System.out.println(position.getData() + " ");
             position = position.getLink();
         }
         System.out.println();
