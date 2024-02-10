@@ -67,14 +67,14 @@ public class DioList
         System.out.println();
     }
 
-    public String getHead()
+    public int getHead()
     {
-        return "the head contains " + head.getData();
+        return head.getData();
     }
 
-    public String getTail()
+    public int getTail()
     {
-        return "the tail contains " + tail.getData();
+        return tail.getData();
     }
 
 
