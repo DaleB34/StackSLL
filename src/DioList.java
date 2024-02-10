@@ -9,23 +9,36 @@ public class DioList
         tail = null;
     }
 
-    public void addHeadNode(int addData)
+    public void addTailNode(int addData)
     {
-        if(head == null)
+        if(tail == null)
         {
-            head = new Node(addData, null); //in the case of an empty list
-            tail = head;
+            tail = new Node(addData, null); //in the case of an empty list
+            head = tail;
         }
         else {
-            head = new Node(addData, head);
-            System.out.println(head);
+            tail = new Node(addData, tail);
+        }
+    }
+
+    public void deleteTailNode()
+    {
+        Node position = tail;
+        if(length() == 0)
+        {
+            System.out.println("Deleting from empty list");
+            System.exit(0);
+        }
+        else
+        {
+            tail = tail.getLink();
         }
     }
 
 
     public boolean hasNext()
     {
-        Node position = head;
+        Node position = tail;
         if (position.getLink() != null)
             return true;
         return false;
@@ -34,7 +47,7 @@ public class DioList
     public int length()
     {
         int count = 0;
-        Node position = head;
+        Node position = tail;
         while (position != null)
         {
             count++;
@@ -45,13 +58,23 @@ public class DioList
 
     public void showList()
     {
-        Node position = head;
+        Node position = tail;
         while (position != null)
         {
             System.out.println(position.getData() + " ");
             position = position.getLink();
         }
         System.out.println();
+    }
+
+    public String getHead()
+    {
+        return "the head contains " + head.getData();
+    }
+
+    public String getTail()
+    {
+        return "the tail contains " + tail.getData();
     }
 
 
@@ -86,13 +109,6 @@ public class DioList
 
         public String toString()
         {
-            if(length() > 0)
-            {
-                if(getLink() == null)
-                {
-                    return "data:" + data + " links to " + head.getData();
-                }
-            }
             return "data:" + data + " links to " + link;
         }
 
